@@ -1,0 +1,16 @@
+// 4 method to check if an object is empty or not 
+ // 1 . Object.keys(obj).length === 0
+ // 2 . Object.entries(obj).length === 0
+ // 3.for...in loop    ---- for (let key in obj) {
+        // if (obj.hasOwnProperty(key)) {
+            // return false;
+        // }
+    // }
+
+ // 4 . JSON.stringify(obj) === '{}'; 
+
+    // conver the object to string & check to empty string
+   
+var isEmpty = function(obj) {
+    return Object.keys(obj).length ===0;
+};

@@ -1,0 +1,13 @@
+var chunk = function(arr, size) {
+    let chunkedArr = [];
+    let i =0;
+   
+    while(i<arr.length){
+        const newArr = arr.slice(i,i+size);
+        chunkedArr.push(newArr);
+        i=i+size;
+        
+    }return chunkedArr;
+};
+
+

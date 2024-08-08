@@ -1,0 +1,11 @@
+var once = function(fn) {
+    let called = false;
+    let resulr;
+    return function(...args){
+       if (!called){
+            called = true;
+        result = fn(...args); //...args syntax is known as the rest parameter. It allows you to represent an indefinite number of arguments as an array.
+        return result;
+        }else return undefined;
+    }
+};

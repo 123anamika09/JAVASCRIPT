@@ -1,0 +1,48 @@
+
+// Promises in JavaScript are a way to handle asynchronous operations, allowing you to write code that waits for tasks like API calls, file reads, or other operations to complete before proceeding. They help manage asynchronous code more effectively and can be particularly useful for chaining operations and handling errors.
+//A Promise can be in one of three states:
+    Pending: The initial state, where the promise is neither fulfilled nor rejected.
+    Fulfilled: The operation completed successfully, and the promise has a resulting value.
+    Rejected: The operation failed, and the promise has a reason for the failure.
+
+//create promie
+//const myPromise = new Promise((resolve, reject) => {
+    // Asynchronous operation here
+    if (/* operation successful */) {
+        resolve(value); // The promise is fulfilled with `value`
+    } else {
+        reject(reason); // The promise is rejected with `reason`
+    }
+});
+
+//.then  :-myPromise.then(
+    value => { /* handle fulfilled value */ },
+    reason => { /* handle rejection reason */ }
+);
+
+// .catch   myPromise.catch(reason => { /* handle rejection */ });
+
+
+                                                                                   // CODE
+**
+ * @param {Promise} promise1
+ * @param {Promise} promise2
+ * @return {Promise}
+ */
+var addTwoPromises = async function(promise1, promise2) {
+    return new Promise((resolve,reject)=>{
+        Promise.all([promise1,promise2])
+        .then(results=>{
+            const sum = results[0] + results[1];
+            resolve(sum);
+       
+        })
+         .catch(error=>{
+            reject(error); 
+    });
+});
+}
+/**
+ * addTwoPromises(Promise.resolve(2), Promise.resolve(2))
+ *   .then(console.log); // 4
+ */

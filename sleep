@@ -1,0 +1,20 @@
+// you often need to pause or delay the execution of code, which is where the concept of "sleep" or "pause" comes in. JavaScript doesn't have a built-in sleep function that blocks execution ., you can achieve a delay using asynchronous programming techniques, specifically with Promises and async/await.
+
+
+
+
+
+Using Promises for Sleep:
+
+ function sleep(milliseconds) {
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+
+                                                                                  // CODE
+
+                                                                                  async function sleep(millis) {
+                                                                await new Promise(resolve=>setTimeout(resolve,millis));
+                                                                               }

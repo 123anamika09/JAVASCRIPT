@@ -1,0 +1,6 @@
+var sortBy = function(arr, fn) {
+   return arr.sort((a,b)=>fn(a)-fn(b));
+};
+
+
+//JavaScript's Array.prototype.sort() method is specifically designed to sort arrays, and it provides a straightforward way to sort elements using a custom comparator function. This method allows you to sort elements based on specific criteria, such as values returned by a function applied to each element.

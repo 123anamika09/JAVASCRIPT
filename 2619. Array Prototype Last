@@ -1,0 +1,16 @@
+Array.prototype.last = function() {
+     if(this.length===0) {
+        return -1;
+     }  return this[this.length-1];
+};
+
+
+//  here we can acces the element using last() && with the help of this keyword The this keyword in JavaScript is used to refer to the context in which a function is executed. In the case of adding a method to Array.prototype, this refers to the specific array instance that the method is being called on.
+Why Use this in Array.prototype.last
+When you define a method on the Array.prototype, you're essentially adding a method that can be called on any array instance. The this keyword inside that method points to the particular array that the method is being executed on.
+
+
+//Benefits of Using Array.prototype.last:
+
+   // Makes the code more readable by providing a direct way to access the last element of an array.
+  //  Encapsulates the logic for handling empty arrays, so you don't have to repeatedly check for an empty array in your code.

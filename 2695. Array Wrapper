@@ -1,0 +1,28 @@
+var ArrayWrapper = function(nums) {
+    this.nums = nums;
+};
+
+/**
+ * @return {number}
+ */
+ArrayWrapper.prototype.valueOf = function() {
+
+    // .flat(): Flattens the array to a single level. For example,
+    // if this.nums is [[1, 2], [3, 4]], then this.nums.flat() will result in [1, 2, 3, 4].
+    // If this.nums is already a flat array, flat() has no effect.
+      return this.nums.flat().reduce((acc, num) => acc + num, 0);
+
+    //   .reduce((acc, num) => acc + num, 0):
+
+    // .reduce(): Applies a function (callback) to each element of the array, resulting in a single output value. It accumulates the results of applying the function across all elements.
+    // (acc, num) => acc + num: This is the callback function used in reduce(). It takes two arguments:
+    //     acc (short for accumulator): The running total or accumulated value.
+    //     num: The current element being processed in the array.
+}
+
+/**
+ * @return {string}
+ */
+ArrayWrapper.prototype.toString = function() {
+   return `[${this.nums.flat().join(',')}]`;
+}

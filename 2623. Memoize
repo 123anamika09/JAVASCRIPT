@@ -1,0 +1,20 @@
+function memoize(fn) {
+
+
+
+    // To implement a memoized function that stores previously computed values and retrieves them when the same
+    //  inputs are encountered, we can use a caching mechanism,
+    //  typically implemented with a dictionary
+    const cache = {}; 
+    // create an cache object to store all the outputs o function calls & It will hold key-value pairs
+
+        return function(...args) {
+        const key = JSON.stringify(args); // convert the argument to a string to use a unique key
+        if (key in cache) {
+            return cache[key];
+        }
+                const result = fn.apply(this,args);
+                cache[key] = result;
+                return result;
+    }
+}

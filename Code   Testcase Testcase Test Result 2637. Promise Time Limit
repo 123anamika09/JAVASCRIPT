@@ -1,0 +1,15 @@
+var timeLimit = function(fn, t) {
+    
+    return async function(...args) {
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => reject("Time Limit Exceeded"), t);
+        });
+
+        // Create the promise for the function call
+        const fnPromise = fn(...args);
+
+        // Use Promise.race to race between the fnPromise and the timeoutPromise
+        return Promise.race([fnPromise, timeoutPromise]);
+    };
+    
+};

@@ -1,0 +1,42 @@
+class EventEmitter {
+    constructor() {
+        this.events = {}; // Initialize the events object to hold event listeners
+    }
+    
+    /**
+     * @param {string} eventName
+     * @param {Function} callback
+     * @return {Object}
+     */
+    subscribe(eventName, callback) {
+        // Check if the event already has a listener array; if not, initialize it
+        if (!this.events[eventName]) {
+            this.events[eventName] = []; // Create an array for the event if it doesn't exist
+        }
+
+        // Add the callback to the list of listeners for the event
+        this.events[eventName].push(callback);
+
+        // Return an object with an unsubscribe method
+        return {
+            unsubscribe: () => {
+                // Remove the callback from the list of listeners
+                this.events[eventName] = this.events[eventName].filter(listener => listener !== callback);
+            }
+        };
+    }
+    
+    /**
+     * @param {string} eventName
+     * @param {Array} args
+     * @return {Array}
+     */
+    emit(eventName, args = []) {
+        // Check if there are listeners for the event
+        if (this.events[eventName]) {
+            // Call each callback with the provided arguments
+            return this.events[eventName].map(callback => callback(...args)); // Use map to get results
+        }
+        return []; // Return an empty array if no listeners are found
+    }
+}
